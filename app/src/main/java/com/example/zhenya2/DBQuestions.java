@@ -1,7 +1,9 @@
 package com.example.zhenya2;
 
 import static com.example.zhenya2.OpenHelper.QUESTIONS_ID;
+import static com.example.zhenya2.OpenHelper.QUESTIONS_POINTS;
 import static com.example.zhenya2.OpenHelper.QUESTIONS_TABLE_NAME;
+import static com.example.zhenya2.OpenHelper.QUESTIONS_TEXT;
 import static com.example.zhenya2.OpenHelper.QUESTIONS_THEMEID;
 import static com.example.zhenya2.OpenHelper.THEMES_ID;
 
@@ -24,9 +26,14 @@ public class DBQuestions {
 
     public void insert(Question question) {
         ContentValues cv = new ContentValues();
+        ContentValues cv2 = new ContentValues();
         cv.put(OpenHelper.QUESTIONS_TEXT, question.getText());
+        cv.put(QUESTIONS_POINTS, question.getPoints());
+        cv2.put(QUESTIONS_POINTS, 10);
         cv.put(QUESTIONS_THEMEID, question.getThemeId());
         db2.insert(QUESTIONS_TABLE_NAME, null , cv);
+        db2.delete(QUESTIONS_TABLE_NAME,"id = 6 or id = 7",new String[]{} );
+        db2.update(QUESTIONS_TABLE_NAME, cv2, "", new String[]{});
     }
     public Question select(int id) {
         Cursor cursor = db2.query(QUESTIONS_TABLE_NAME, null, QUESTIONS_ID + " = ?", new String[]{String.valueOf(id)}, null, null, null);

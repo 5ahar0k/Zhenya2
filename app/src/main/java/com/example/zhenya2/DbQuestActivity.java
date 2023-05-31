@@ -17,8 +17,6 @@ public class DbQuestActivity extends AppCompatActivity {
     Button addTheme;
     ListView ThemeList;
     DBThemes dbThemes;
-
-
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {

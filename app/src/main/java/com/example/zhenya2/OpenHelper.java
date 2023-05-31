@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class OpenHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "quest.db";
-    public static final int DB_VERSIONS = 7;
+    public static final int DB_VERSIONS = 9;
     
     public static final String THEMES_TABLE_NAME = "themes";
     public static final String THEMES_ID = "id";
