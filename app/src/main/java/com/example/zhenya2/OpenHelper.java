@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class OpenHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "quest.db";
-    public static final int DB_VERSIONS = 9;
+    public static final int DB_VERSIONS = 1;
     
     public static final String THEMES_TABLE_NAME = "themes";
     public static final String THEMES_ID = "id";
@@ -81,6 +81,27 @@ public class OpenHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + QUESTIONS_TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + ANSWERS_TABLE_NAME);
         onCreate(db);
+        db.execSQL("INSERT INTO " + ANSWERS_TABLE_NAME + " VALUES " +
+                "(1, 'направо', 1, 2)" );
+        db.execSQL("INSERT INTO " + ANSWERS_TABLE_NAME + " VALUES " +
+                "(2, 'правую', 2, 3)" );
+        db.execSQL("INSERT INTO " + ANSWERS_TABLE_NAME + " VALUES " +
+                "(3, 'подпрыгнуть', 3, 4)" );
+        db.execSQL("INSERT INTO " + ANSWERS_TABLE_NAME + " VALUES " +
+                "(4, 'найти стул', 3, 4)" );
+        db.execSQL("INSERT INTO " + QUESTIONS_TABLE_NAME + " VALUES " +
+                "(1, 'Выходите из камеры. Вы можете пойти налево или направо. Куда пойдете?', 1, 10)" );
+        db.execSQL("INSERT INTO " + QUESTIONS_TABLE_NAME + " VALUES " +
+                "(2, 'Вы проходите по коридору и видите две двери. Какую выберите?', 1, 10)" );
+        db.execSQL("INSERT INTO " + QUESTIONS_TABLE_NAME + " VALUES " +
+                "(3, 'Вы нашли комнату с ключом. Но ключ находится на веревке, висящей у потолка. Как вы доберетесь до него?', 1, 10)" );
+        db.execSQL("INSERT INTO " + QUESTIONS_TABLE_NAME + " VALUES " +
+                "(4, 'Вы получили ключ. Выход наружу закрыт, но вы нашли лестницу, ведущую на крышу замка. Как будете выбираться?', 1, 10)" );
+        db.execSQL("INSERT INTO " + QUESTIONS_TABLE_NAME + " VALUES " +
+                "(5, 'Вы на крыше замка! Но видите стражника, который патрулирует территорию. Что вы будете делать?', 1, 10)" );
+        db.execSQL("INSERT INTO " + THEMES_TABLE_NAME + " VALUES " +
+                "(1, '\"Побег из замка\". Вы - заключенный в замке, но вам удалось обнаружить тайный выход из вашей камеры. Вы решаете попытаться сбежать. Ваша цель - выбраться из замка и освободиться', 0)" );
+
 
     }
 }

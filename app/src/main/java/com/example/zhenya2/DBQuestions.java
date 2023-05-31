@@ -31,9 +31,7 @@ public class DBQuestions {
         cv.put(QUESTIONS_POINTS, question.getPoints());
         cv2.put(QUESTIONS_POINTS, 10);
         cv.put(QUESTIONS_THEMEID, question.getThemeId());
-        db2.insert(QUESTIONS_TABLE_NAME, null , cv);
-        db2.delete(QUESTIONS_TABLE_NAME,"id = 6 or id = 7",new String[]{} );
-        db2.update(QUESTIONS_TABLE_NAME, cv2, "", new String[]{});
+
     }
     public Question select(int id) {
         Cursor cursor = db2.query(QUESTIONS_TABLE_NAME, null, QUESTIONS_ID + " = ?", new String[]{String.valueOf(id)}, null, null, null);
